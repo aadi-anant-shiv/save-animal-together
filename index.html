@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Save Animal Together</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">🐾</div>
+      <div>
+        <h1>Save Animal Together</h1>
+        <p>Report. Respond. Rescue.</p>
+      </div>
+    </div>
+    <button id="themeToggle" class="theme-toggle" type="button">☀️ <span>Light</span></button>
+  </header>
+
+  <main class="page">
+
+    <section class="intro">
+      <span class="eyebrow">ANIMAL ACCIDENT REPORTING</span>
+      <h2>Help an animal when it needs it most.</h2>
+      <p>Share the details of an accident or injured animal so the concerned person can respond quickly.</p>
+    </section>
+
+    <div id="successMessage" class="success card hidden">
+      <div class="success-icon">✓</div>
+      <span class="step-label">REPORT RECEIVED</span>
+      <h2>Thank you for helping. 🐾</h2>
+      <p>The accident report has been sent to the concerned person.</p>
+      <button type="button" onclick="location.reload()">Submit Another Report</button>
+    </div>
+
+    <div class="content-grid">
+
+      <form id="reportForm" class="card report-card">
+
+        <div class="card-heading">
+          <div>
+            <span class="step-label">REPORT</span>
+            <h3>Accident details</h3>
+          </div>
+          <span class="required-note">* Required</span>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="animal">Animal Type <span>*</span></label>
+            <select id="animal" required>
+              <option value="">Select animal</option>
+              <option>Cow</option>
+              <option>Dog</option>
+              <option>Bird</option>
+              <option>Cat</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Accident Severity <span>*</span></label>
+            <div class="severity-grid">
+              <label class="severity-option">
+                <input type="radio" name="severity" value="Very Severe" required>
+                <span>🔴 <b>Very Severe</b></span>
+              </label>
+              <label class="severity-option">
+                <input type="radio" name="severity" value="Severe">
+                <span>🟠 <b>Severe</b></span>
+              </label>
+              <label class="severity-option">
+                <input type="radio" name="severity" value="Normal">
+                <span>🟡 <b>Normal</b></span>
+              </label>
+              <label class="severity-option">
+                <input type="radio" name="severity" value="Minor">
+                <span>🟢 <b>Minor</b></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="photo">Animal Photo <span>*</span></label>
+          <label class="upload-box" for="photo">
+            <span class="upload-icon">📷</span>
+            <span>
+              <strong id="photoLabel">Add a clear photo</strong>
+              <small>Click to browse an image from your device</small>
+            </span>
+          </label>
+          <input
+            type="file"
+            id="photo"
+            name="photo"
+            accept="image/*"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="location">Location <span>*</span></label>
+          <div class="location-box">
+            <input type="text" id="location" placeholder="Enter accident location" required>
+            <button type="button" id="getLocation" class="location-btn">📍 Auto-fetch</button>
+          </div>
+          <small class="field-hint">Allow location access when your browser asks.</small>
+        </div>
+
+        <div class="field">
+          <label for="description">Quick Description <span>*</span></label>
+          <textarea id="description" placeholder="What happened? Mention any visible injuries or immediate danger..." required></textarea>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Your Name <span>*</span></label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="contact">Contact Number <span>*</span></label>
+            <input
+              type="tel"
+              id="contact"
+              name="contact"
+              placeholder="Enter 10-digit mobile number"
+              inputmode="numeric"
+              maxlength="10"
+              pattern="[0-9]{10}"
+              required
+            >
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span>🚨</span> Submit Accident Report
+        </button>
+
+        <p class="privacy-note">Your report is sent to the concerned person by email.</p>
+
+      </form>
+
+      <aside class="side-panel">
+
+        <div class="facts-card card">
+          <div class="side-title">
+            <span class="side-icon">🐾</span>
+            <div>
+              <span class="step-label">DID YOU KNOW?</span>
+              <h3>Every report can matter.</h3>
+            </div>
+          </div>
+
+          <div class="fact">
+            <strong>🚗 Road accidents</strong>
+            <p>Free-roaming animals can be especially vulnerable around busy roads and traffic.</p>
+          </div>
+
+          <div class="fact">
+            <strong>📍 Location helps</strong>
+            <p>A precise location makes it easier for a responder to find the animal quickly.</p>
+          </div>
+
+          <div class="fact">
+            <strong>📷 A photo adds context</strong>
+            <p>A clear photo can help the responder understand the situation before reaching the spot.</p>
+          </div>
+        </div>
+
+        <div class="tip-card card">
+          <span class="tip-icon">❤️</span>
+          <div>
+            <span class="step-label">QUICK TIP</span>
+            <h3>Stay safe first.</h3>
+            <p>Do not put yourself in danger while trying to help an injured animal. Report from a safe place.</p>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Developed by Ravi Jha & Shivam Shukla · © 2026 Save Animal Together</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
